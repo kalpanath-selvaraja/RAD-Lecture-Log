@@ -1,5 +1,7 @@
 import express, { type Request, type Response } from "express"
 import AuthRouter from "./routes/auth.routers"
+import ArticleRouter from "./routes/article.router"
+
 import mongoose from "mongoose"
 import dotenv from "dotenv"
 import  cors from "cors"
@@ -15,6 +17,8 @@ app.use(cors({ origin: "http://localhost:5000" }))
 app.use(express.json())
 
 app.use("/api/v1/auth", AuthRouter)
+app.use("/api/v1/articel", ArticleRouter)
+
 
 mongoose
   .connect(MONGO_URL)

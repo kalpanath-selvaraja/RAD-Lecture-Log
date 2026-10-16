@@ -1,4 +1,4 @@
-import {Schema, Types} from "mongoose"
+import {model, Schema, Types} from "mongoose"
 import { timeStamp } from "node:console"
 
 
@@ -15,7 +15,7 @@ export interface IArticle extends Document{
     updatedAt: Date
 }
 
-new Schema<IArticle>(
+const ArticleSchema = new Schema<IArticle>(
     {
         title :{ type: String, required: true },
         content: { type: String, required: true },
@@ -35,3 +35,5 @@ new Schema<IArticle>(
     {timestamps: true}
     
 )
+
+export const ArticleModel = model<IArticle>("articles", ArticleSchema)
