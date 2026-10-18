@@ -40,21 +40,22 @@ function AppRouter() {
         <Routes>
 
             {/* only protected (After login, can access ) */}
-            <Route path="/" element={ <RequireAuth>
+            <Route path="/" element={ 
+            <RequireAuth>
                 <Home />
             </RequireAuth>} />
 
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
 
-            {/* Admin only. */}
+            {/* Admin only.
             <Route path="/home-admin">
                 element= {
                     <RequireAuth roles={["ADMIN"]}>
                         <Home />
                     </RequireAuth>
                 }
-            </Route>
+            </Route> */}
 
             
         </Routes>

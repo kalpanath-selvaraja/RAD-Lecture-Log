@@ -1,11 +1,11 @@
-import { Link, Navigate, useNavigate } from 'react-router-dom'
-import useAuth from '../hooks/useAuth'
-import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+// import useAuth from '../hooks/useAuth'
+// import { useEffect } from 'react'
 
 function Home() {
 
   // const {user, loading} = useAuth()
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   // useEffect(() => {
   //   if(!loading) {

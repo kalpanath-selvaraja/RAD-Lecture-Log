@@ -17,7 +17,7 @@ app.use(cors({ origin: "http://localhost:5000" }))
 app.use(express.json())
 
 app.use("/api/v1/auth", AuthRouter)
-app.use("/api/v1/articel", ArticleRouter)
+app.use("/api/v1/article", ArticleRouter)
 
 
 mongoose
