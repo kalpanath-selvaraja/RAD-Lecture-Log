@@ -4,7 +4,7 @@ import { refreshTokenCall } from "./auth";
 const PUBLIC_ENDPOINTS = ["/auth/login", "/auth/register", "/auth/refresh"];
 
 const api = axios.create({
-    baseURL: "http://localhost:5000/api/v1",
+    baseURL: "https://rad-lecture-log-vhqq.vercel.app//api/v1",
 })
 
 api.interceptors.request.use((config) => {
