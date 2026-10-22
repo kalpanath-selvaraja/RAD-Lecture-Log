@@ -11,5 +11,6 @@ const router = Router()
 router.post("/create",authenticate , requireRole([UserRole.ADMIN, UserRole.MANAGER] ),
  upload.single("image"), creatArticle)
 
+
 export default router
 2

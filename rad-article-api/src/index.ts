@@ -1,3 +1,9 @@
+// for now
+import dns from "node:dns"
+dns.setServers(["8.8.8.8" , "8.8.8.4"])
+
+
+
 import express, { type Request, type Response } from "express"
 import AuthRouter from "./routes/auth.routers"
 import ArticleRouter from "./routes/article.router"
@@ -8,13 +14,20 @@ import  cors from "cors"
 
 dotenv.config()
 
-const MONGO_URL = process.env.MONGO_LOCAL_URL || ""
+const MONGO_URL = process.env.MONGO_URL || ""
 const PORT = process.env.PORT || 3000
 
 const app = express()
 
+
+app.get("/", (req, res) => {
+  res.send("Server is working.")
+})
+
+
 app.use(cors({ origin: "http://localhost:5000" }))
 app.use(express.json())
+
 
 app.use("/api/v1/auth", AuthRouter)
 app.use("/api/v1/article", ArticleRouter)

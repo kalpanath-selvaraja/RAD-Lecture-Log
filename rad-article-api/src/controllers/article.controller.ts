@@ -3,6 +3,7 @@ import { AuthRequest } from "../middleWares/auth"
 import { UserModel } from "../models/user.model"
 import { uploadImage } from "../services/storage.service"
 import { ArticleModel } from "../models/article.model"
+import { generateArticelDescription } from "../services/ai.service"
 
 export const creatArticle= async (req:AuthRequest , res:Response  ) => {
 
@@ -75,5 +76,18 @@ export const getAllArticles = async (req:Request, res:Response) => {
 
     }catch(error){
         res.status(500).json({error: "Internal server Error"})
+    }
+}
+
+export const genarteDescription = async (req: Request, res: Response) => {
+    const { text }= req.body
+
+    try {
+        const result = generateArticelDescription(text)
+        res.status(200).json({
+            data: result
+        })
+    }catch (error) {
+        res.status(500).json({ error: "Internal Server Error"})
     }
 }
